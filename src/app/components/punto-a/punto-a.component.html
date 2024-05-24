@@ -1,0 +1,67 @@
+<div class="container mt-5 mb-5 col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+  <div class="card shadow-sm rounded-3 p-4">
+    <form id="traductorForm" (ngSubmit)="traducir()">
+      <h2 class="text-center mb-4">Traductor de Idiomas</h2>
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold mb-2">De:</label>
+        <div class="btn-group btn-group-toggle d-flex gap-2" data-toggle="buttons">
+          <label class="btn btn-outline-secondary rounded-pill" for="italiano">
+            <input type="radio" id="italiano" [(ngModel)]="source" name="source" value="it" autocomplete="off"> <span
+              class="fi fi-it"></span> IT
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="frances">
+            <input type="radio" id="frances" [(ngModel)]="source" name="source" value="fr" autocomplete="off"> <span
+              class="fi fi-fr"></span> FR
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="ingles">
+            <input type="radio" id="ingles" [(ngModel)]="source" name="source" value="en" autocomplete="off"> <span
+              class="fi fi-gb"></span> EN
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="espanol">
+            <input type="radio" id="espanol" [(ngModel)]="source" name="source" value="es" autocomplete="off"> <span
+              class="fi fi-es"></span> ES
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="textoOriginal" class="form-label fw-semibold">Texto a traducir:</label>
+        <textarea class="form-control rounded-3" id="textoOriginal" [(ngModel)]="texto" name="texto"
+          placeholder="Ingrese el texto"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold mb-2">A:</label>
+        <div class="btn-group btn-group-toggle d-flex gap-2" data-toggle="buttons">
+          <label class="btn btn-outline-secondary rounded-pill" for="italiano2">
+            <input type="radio" id="italiano2" [(ngModel)]="target" name="target" value="it" autocomplete="off"> <span
+              class="fi fi-it"></span> IT
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="frances2">
+            <input type="radio" id="frances2" [(ngModel)]="target" name="target" value="fr" autocomplete="off"> <span
+              class="fi fi-fr"></span> FR
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="ingles2">
+            <input type="radio" id="ingles2" [(ngModel)]="target" name="target" value="en" autocomplete="off"> <span
+              class="fi fi-gb"></span> EN
+          </label>
+          <label class="btn btn-outline-secondary rounded-pill" for="espanol2">
+            <input type="radio" id="espanol2" [(ngModel)]="target" name="target" value="es" autocomplete="off"> <span
+              class="fi fi-es"></span> ES
+          </label>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary rounded-pill px-4">
+          TRADUCIR
+        </button>
+      </div>
+      <div class="mb-3">
+        <label for="textoTraducido" class="form-label fw-semibold">Traducción:</label>
+        <textarea class="form-control rounded-3" id="textoTraducido" [(ngModel)]="textoTraducido" name="textoTraducido"
+          readonly></textarea>
+      </div>
+    </form>
+  </div>
+</div>

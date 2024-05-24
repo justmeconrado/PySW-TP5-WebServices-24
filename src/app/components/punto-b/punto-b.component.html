@@ -1,0 +1,54 @@
+<div class="container mt-5 mb-5 col-xxl-10 col-xl-10 col-lg-4 col-md-4 col-sm-12 col-12">
+  <div class="container card shadow-sm rounded-3 p-4">
+    <h1 class="text-center display-4 mb-5" style="font-family: 'Playfair Display', serif;">Últimas Noticias</h1>
+    <div class="d-flex center">
+      <button class="btn btn-lg btn-primary m-4 mx-auto" type="button" id="obtener" (click)="obtenerNoticias()"
+        style="font-family: 'Playfair Display', serif;">Obtener
+        noticias</button>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let noticia of noticias">
+          <div class="card h-100 border-0">
+            <img [src]="noticia.mainMedia[0]?.original?.url" class="card-img-top img-fluid rounded-3"
+              alt="{{ noticia.title }}" style="object-fit: cover; height: 250px;">
+            <div class="card-body">
+              <h5 class="card-title text-dark fw-bold">{{ noticia.title }}</h5>
+              <p class="card-text text-secondary" style="font-family: 'Playfair Display', serif;">{{ noticia.description
+                | slice:0:120 }}...</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-link text-decoration-none mt-auto" (click)="mostrarDetallesNoticia(noticia)"
+                  data-bs-toggle="modal" data-bs-target="#noticiaModal" style="font-family: 'Playfair Display', serif;">
+                  Leer más <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="noticiaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3">
+          <div class="modal-header">
+            <h5 class="modal-title" id="noticiaModalLabel" style="font-family: 'Playfair Display', serif;">{{
+              noticiaSeleccionada?.title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img *ngIf="noticiaSeleccionada" [src]="noticiaSeleccionada.mainMedia[0]?.original?.url"
+              class="img-fluid rounded-3 mb-3" alt="{{ noticiaSeleccionada.title }}"
+              style="font-family: 'Playfair Display', serif;">
+            <p style="font-family: 'Playfair Display', serif;">{{ noticiaSeleccionada?.description }}</p>
+            <p style="font-family: 'Playfair Display', serif;">{{ noticiaSeleccionada?.body }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

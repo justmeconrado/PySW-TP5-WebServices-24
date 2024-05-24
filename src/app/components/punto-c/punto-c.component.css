@@ -1,0 +1,33 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+}
+
+
+.brand-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 3.5rem);
+}
+
+.model-list li {
+  margin-bottom: 5px;
+}
+
+.btn-custom {
+  background-color: white;
+  color: #0647FD;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.6s;
+}
+
+.btn-custom:hover {
+  background-color: #DEE4FF;
+}

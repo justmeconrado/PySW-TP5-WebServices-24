@@ -1,0 +1,35 @@
+<div class="container mt-5 mb-5">
+  <h1 class="text-center brand-title mb-4">Aplicación del Clima</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Ingresa una ciudad" [(ngModel)]="city" />
+        <button class="btn btn-primary" type="button" (click)="getWeather()">Buscar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="weatherData">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ weatherData.name }}, {{ weatherData.sys.country }}</h5>
+          <p class="card-text">{{ weatherData.weather[0].description }}</p>
+          <p class="card-text">Temperatura: {{ weatherData.main.temp }}°C</p>
+          <p class="card-text">Máxima: {{ weatherData.main.temp_max }}°C</p>
+          <p class="card-text">Mínima: {{ weatherData.main.temp_min }}°C</p>
+          <p class="card-text">Sensación térmica: {{ weatherData.main.feels_like }}°C</p>
+          <p class="card-text">Humedad: {{ weatherData.main.humidity }}%</p>
+          <p class="card-text">Presión: {{ weatherData.main.pressure }} hPa</p>
+          <p class="card-text">Nubes: {{ weatherData.clouds.all }}%</p>
+          <p class="card-text">Velocidad del viento: {{ weatherData.wind.speed }} m/s</p>
+          <p class="card-text">Dirección del viento: {{ weatherData.wind.deg }}°</p>
+          <p class="card-text">Visibilidad: {{ weatherData.visibility / 1000 }} km</p>
+          <p class="card-text">Amanecer: {{ weatherData.sys.sunrise * 1000 | date:'shortTime' }}</p>
+          <p class="card-text">Atardecer: {{ weatherData.sys.sunset * 1000 | date:'shortTime' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
